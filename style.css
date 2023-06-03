@@ -2,7 +2,7 @@
 
 :root {
   --primaryColor: #0D66EC;
-  --secondaryColor: #EEE8A9;
+  --secondaryColor:  #D3EDFF;
   --mainWhite: #fff;
   --mainBlack: #222;
   --mainGrey: #8B8DB9;
@@ -23,3 +23,46 @@ body {
   background-color: var(--bodyColor);
   /* position: relative; */
 }
+.navbar{
+    background-color: var(--secondaryColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+.navbar-center{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;  
+}
+.nav-title{
+    color: var(--mainBlack);
+    font-weight: bold;
+}
+.menu-icon i ,
+.cart-btn i {
+    color: var(--primaryColor);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.cart-btn{
+    position: relative;
+}
+.cart-badge{
+    background-color: var(--mainRed);
+    color: var(--mainWhite);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -9px;
+    right: -12px;
+    font-size: 0.75rem;
+}
+
+/* end navbar */
+
