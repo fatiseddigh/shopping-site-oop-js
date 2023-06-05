@@ -188,7 +188,7 @@ body {
   padding-right: 0.5rem;
   font-weight: bold;
 }
-.modal__footer__text :nth-child(2) {
+.modal__footer__total {
   color: var(--primaryColor);
   font-weight: bold;
 }

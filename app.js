@@ -4,7 +4,12 @@ const showModalBtn = document.querySelector(".show-modal");
 const closeModalBtn = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal");
 const backDrop = document.querySelector(".backdrop");
+
 const productsDom = document.querySelector(".product-center");
+const cartBadge = document.querySelector(".cart-badge");
+const cartTotalPrice = document.querySelector(".modal__footer__total");
+
+let carts = [];
 class Products {
   getProducts() {
     return productsData;
@@ -30,11 +35,54 @@ class Ui {
       productsDom.innerHTML = result;
     });
   }
+  getAddToCartBtn() {
+    const addToCartBtn = document.querySelectorAll(".add-to-cart");
+    const buttons = [...addToCartBtn];
+    buttons.forEach((btn) => {
+      const btnId = btn.dataset.id;
+      const IsInCart = carts.find((product) => product.id === btnId);
+      if (IsInCart) {
+        btn.innerText = "In Cart";
+        btn.disabled = "true";
+      }
+
+      btn.addEventListener("click", (e) => {
+        btn.innerText = "In Cart";
+        btn.disabled = "true";
+        // get product from products
+        const addProduct = Storage.getProducts(btnId);
+        // add to cart
+        carts = [...carts, { ...addProduct, quantity: 1 }];
+        // save cart to localStorage
+        Storage.saveCart(carts);
+        // update cart value
+        // add to cart item
+        this.setCartValue(carts);
+      });
+    });
+  }
+  setCartValue(cart) {
+    let tempCartItem = 0;
+    const totalPrice = cart.reduce((acc, cur) => {
+      tempCartItem += cur.quantity;
+
+      return acc + cur.quantity * cur.price;
+    }, 0);
+    cartBadge.innerText = tempCartItem;
+    cartTotalPrice.innerText = `${totalPrice.toFixed(2)} $`;
+  }
 }
 
 class Storage {
   static saveProducts(products) {
     localStorage.setItem("products", JSON.stringify(products));
+  }
+  static getProducts(id) {
+    const _product = JSON.parse(localStorage.getItem("products"));
+    return _product.find((p) => p.id == parseInt(id));
+  }
+  static saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 }
 
@@ -44,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const ui = new Ui();
   ui.displayProducts(productsData);
+  ui.getAddToCartBtn();
   Storage.saveProducts(productsData);
 });
 
