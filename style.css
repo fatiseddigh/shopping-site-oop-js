@@ -91,6 +91,7 @@ body {
   left: 50%;
   border-radius: 8px;
   transform: translate(-50%, -50%);
+  background-color: var(--mainWhite);
 }
 .modal__header {
   width: 100%;
@@ -175,7 +176,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 1rem;
+  padding: 1rem 0;
 }
 .modal__footer__text {
   display: flex;
