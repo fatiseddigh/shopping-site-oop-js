@@ -15,18 +15,32 @@
     <title>OOP Shopping Site</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-center">
-        <span class="menu-icon">
-          <i class="fas fa-bars"></i>
-        </span>
-        <p class="nav-title">Shopping site</p>
-        <span class="cart-btn show-modal">
-          <i class="fas fa-cart-plus"></i>
-          <span class="cart-badge">0</span>
-        </span>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-center">
+          <span class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </span>
+          <p class="nav-title">Shopping site</p>
+          <span class="cart-btn show-modal">
+            <i class="fas fa-cart-plus"></i>
+            <span class="cart-badge">0</span>
+          </span>
+        </div>
+      </nav>
+      <div class="second-header">
+        <h2>filter products</h2>
+        <form>
+          <input type="text" placeholder="search product" id="search"/>
+        </form>
+      <div class="filter-box">
+       <a href="#" class="btn" data-filter>All</a>
+       <a href="#" class="btn" data-filter>Watch</a>
+       <a href="#" class="btn" data-filter>Sport</a>
+       <a href="#" class="btn" data-filter>Jewelry</a>
       </div>
-    </nav>
+      </div>
+    </header>
 
     <!-- modal -->
 
@@ -68,25 +82,26 @@
     </div>
 
     <!-- products -->
-    <section>
-      <div class="products">
-        <h2 class="section-title">All Products</h2>
-        <!-- single product -->
-        <div class="product-center">
-          <!-- product -1 -->
-          <!-- <section class="product">
-            <div class="image-container">
-              <img class="product-img" src="./images/p-1.jpg" alt="product-1" />
-            </div>
-            <div class="product-desc">
-              <p class="product-title">single bed</p>
-              <p class="product-price">1450 $</p>
-            </div>
-            <button class="add-to-cart">add to cart</button>
-          </section> -->
+      <section >
+        <div class="products">
+          <h2 class="section-title">All Products</h2>
+          <!-- single product -->
+          <div class="product-center">
+            <!-- product -1 -->
+            <!-- <section class="product">
+              <div class="image-container">
+                <img class="product-img" src="./images/p-1.jpg" alt="product-1" />
+              </div>
+              <div class="product-desc">
+                <p class="product-title">single bed</p>
+                <p class="product-price">1450 $</p>
+              </div>
+              <button class="add-to-cart">add to cart</button>
+            </section> -->
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <script type="module" src="./app.js"></script>
   </body>
 </html>
